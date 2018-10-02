@@ -3,10 +3,10 @@ module ChainControl
     attr_reader :target, :validation, :operation, :options, :successor
 
     def initialize(target, validation, operation, options = {})
-      @target = target
+      @target     = target
       @validation = validation
-      @operation = operation
-      @options = options
+      @operation  = operation
+      @options    = options
     end
 
     def applicable?
@@ -31,11 +31,8 @@ module ChainControl
     end
 
     def level
-      if successor
-        successor.level + 1
-      else
-        1
-      end
+      return successor.level + 1 if successor
+      1
     end
 
     private
