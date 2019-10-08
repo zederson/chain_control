@@ -32,6 +32,7 @@ module ChainControl
     def add_function(validation, operation, args)
       func = Function.new(target, validation, operation, args)
       (self.function = func) && return if function.nil?
+
       function.add_successor func
     end
   end

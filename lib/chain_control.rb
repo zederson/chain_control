@@ -6,4 +6,8 @@ module ChainControl
   def self.instance(target = nil, options = {})
     ChainControl::Base.new(target, options)
   end
+
+  def self.version
+    ChainControl::VERSION
+  end
 end

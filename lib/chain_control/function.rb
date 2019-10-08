@@ -10,7 +10,7 @@ module ChainControl
     end
 
     def applicable?
-      execute(validation)
+      execute validation
     end
 
     def handler

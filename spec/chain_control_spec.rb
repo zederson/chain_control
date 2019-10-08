@@ -1,13 +1,11 @@
 RSpec.describe ChainControl do
-  it 'has a version number' do
-    expect(ChainControl::VERSION).not_to be nil
-  end
+  it { expect(ChainControl::VERSION).not_to be nil }
 
   describe '.instance' do
     let(:target) { 2 }
     subject { ChainControl.instance(target) }
 
-    it { is_expected.to be_an_instance_of ChainControl::Base }
+    it { is_expected.to be_an_instance_of(ChainControl::Base) }
   end
 
   describe 'when no have target' do
@@ -117,11 +115,12 @@ RSpec.describe ChainControl do
       end
 
       it 'should run once' do
-        expect(result).to receive(:anything).and_return(2)
-        expect(service.execute).to eq 2
-        expect(service.execute).to eq 2
-        expect(service.execute).to eq 2
-        expect(service.execute).to eq 2
+        two = 2
+        expect(result).to receive(:anything).and_return(two)
+        expect(service.execute).to eq two
+        expect(service.execute).to eq two
+        expect(service.execute).to eq two
+        expect(service.execute).to eq two
       end
     end
   end
